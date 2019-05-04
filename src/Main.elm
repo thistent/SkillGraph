@@ -84,6 +84,10 @@ type Msg
 passed to the Elm application at startup, and returns an initial
 [`Model`](#Model) and any command messages for actions that might be required to
 get things going.
+
+Also, this currently takes in the initial GraphChoice when it is called in the
+main function.
+
 -}
 init : GraphChoice -> () -> ( Model, Cmd Msg )
 init graphChoice flags =
@@ -571,7 +575,7 @@ updateGraphWithList =
     List.foldr (\node graph -> Graph.insertData node.id node graph)
 
 
-{-| Generates a DragStart message win the mouse is clicked on a node.
+{-| Generates a DragStart message when the mouse is clicked on a node.
 -}
 onMouseDown : NodeId -> Attribute Msg
 onMouseDown nodeId =
